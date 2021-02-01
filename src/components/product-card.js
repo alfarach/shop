@@ -92,8 +92,8 @@ const styles = {
       maxHeight: '100%',
       maxWidth: '100%',
       display: '-webkit-box',
-      '-webkit-line-clamp': '2',
-      '-webkit-box-orient': 'vertical',
+      webkitLineClamp: '2',
+      webkitBoxOrient: 'vertical',
       mb: '5px',
       a: {
         transition: '500ms',
