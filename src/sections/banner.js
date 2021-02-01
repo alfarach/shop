@@ -36,16 +36,16 @@ const Banner = () => {
               </Button>
             </Box>
             <Box sx={styles.partner}>
-                {/* <Text as="span">ALFARACH on:</Text> */}
-                <Box as="div">
-                  <Image src={img1} alt="" />
-                </Box>
-                <Box as="div">
-                  <Image src={img2} alt="" />
-                </Box>
-                <Box as="div">
-                  <Image src={img3} alt="" />
-                </Box>
+              {/* <Text as="span">ALFARACH on:</Text> */}
+              <Box as="div">
+                <Image src={img1} alt="" />
+              </Box>
+              <Box as="div">
+                <Image src={img2} alt="" />
+              </Box>
+              <Box as="div">
+                <Image src={img3} alt="" />
+              </Box>
             </Box>
           </Box>
           <Box sx={styles.image}>
@@ -97,7 +97,7 @@ const styles = {
       color: 'text_secondary',
       mb: ['20px', null, null, null, null, '30px'],
       width: ['100%'],
-      maxWidth: ['100%', null, null, null, null, '540px'],
+      maxWidth: ['100%', null, null, null, null, '100%'],
       br: {
         display: ['none', null, null, null, 'inherit'],
       },
