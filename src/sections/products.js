@@ -5,12 +5,12 @@ import Swiper from 'react-id-swiper';
 import SwiperCore, { Navigation } from 'swiper';
 
 import ProductCard from 'components/product-card';
-import { FaLongArrowAltLeft, FaLongArrowAltRight } from 'react-icons/fa';
+// import { FaLongArrowAltLeft, FaLongArrowAltRight } from 'react-icons/fa';
 import featureImage1 from 'assets/tutorial-1-1.png';
 import featureImage2 from 'assets/tutorial-1-2.png';
 import featureImage3 from 'assets/tutorial-1-3.png';
 import illustration from 'assets/images/subscribe-bg.png';
-import { withRouter } from 'next/router';
+// import { withRouter } from 'next/router';
 
 const FeatureData = [
   {
@@ -126,7 +126,7 @@ const Feature = () => {
   SwiperCore.use([Navigation]);
   return (
     <Box sx={styles.features} id="products">
-      <Container>
+      <Container sx={styles.container}>
         <BlockTitle
           // slogan="Baby Toys"
           title="Baby Toys"
@@ -162,6 +162,14 @@ const Feature = () => {
 export default Feature;
 
 const styles = {
+  container: {
+    display: "block",
+    alignItems: "center",
+    width: [null, null, null, null, null, null, "1390px"],
+    "@media screen and (max-width: 960px)": {
+      justifyContent: "space-between",
+    },
+  },
   Swipper:{
     '.swiper-button-prev':{
       color: 'white',
@@ -177,7 +185,7 @@ const styles = {
       null,
       `#F8F0EA url(${illustration}) no-repeat center bottom / contain`,
     ],
-    pt: ['80px', null, null, null, null, null, '10px'],
+    pt: ['80px', null, null, null, null, null, '0px'],
     // pb: ['80px', null, null, null, '170px'],
     // pt: ['80px', null, null, null, null, null, '0'],
     pb: ['80px', null, null, null, '10px'],

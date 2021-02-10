@@ -1,10 +1,26 @@
 import React from 'react';
 import { Box, Heading, Text, AspectImage } from 'theme-ui';
-import Image from 'components/image';
+// import Image from 'components/image';
 import { Link } from 'components/link';
 
-import CommentIcon from 'assets/comment-1.svg';
-import { FaStrikethrough } from 'react-icons/fa';
+// import CommentIcon from 'assets/comment-1.svg';
+// import { FaStrikethrough } from 'react-icons/fa';
+
+function formatMoney(amount, decimalCount = 2, decimal = ".", thousands = ",") {
+  try {
+    decimalCount = Math.abs(decimalCount);
+    decimalCount = isNaN(decimalCount) ? 2 : decimalCount;
+
+    const negativeSign = amount < 0 ? "-" : "";
+
+    let i = parseInt(amount = Math.abs(Number(amount) || 0).toFixed(decimalCount)).toString();
+    let j = (i.length > 3) ? i.length % 3 : 0;
+
+    return negativeSign + (j ? i.substr(0, j) + thousands : '') + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + thousands) + (decimalCount ? decimal + Math.abs(amount - i).toFixed(decimalCount).slice(2) : "");
+  } catch (e) {
+    console.log(e)
+  }
+};
 
 const ProductCard = (props) => {
   return (
@@ -19,13 +35,13 @@ const ProductCard = (props) => {
         {props.discount != 0 ? (
           <Text >
             <Text as="span" sx={styles.Discount}>{props.discount}%</Text>
-            <Text as="span" sx={styles.Price}>Rp{props.price}</Text>
+            <Text as="span" sx={styles.Price}>Rp {formatMoney(props.price, 0, ".", ",")}</Text>
           </Text>
         ) : ''}
 
         <Text sx={styles.FinalPrice}>
           {/* <Image src={CommentIcon} alt="" /> */}
-          Rp{props.finalprice}
+          Rp {formatMoney(props.finalprice, 0, ".", ",")}
         </Text>
       </Box>
     </Box>
@@ -81,7 +97,7 @@ const styles = {
     pb: ['10px', null, null, null, '10px'],
     border: '1px solid #F3F4F5',
     borderTop: '0',
-    height: '115px',
+    height: '110px',
     h3: {
       fontWeight: 'normal',
       fontSize: ['18px', null, '17px', null, 2],
